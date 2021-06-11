@@ -11,8 +11,8 @@ use crate::utils::{cubic_polynomial_roots, min_max};
 use crate::{Line, LineEquation, LineSegment, QuadraticBezierSegment};
 use arrayvec::ArrayVec;
 
-use std::cmp::Ordering::{Equal, Greater, Less};
-use std::ops::Range;
+use core::cmp::Ordering::{Equal, Greater, Less};
+use core::ops::Range;
 
 /// A 2d curve segment defined by four points: the beginning of the segment, two control
 /// points and the end of the segment.

@@ -2,7 +2,7 @@ use crate::generic_math::{Point, Rect, Vector};
 use crate::scalar::{One, Scalar};
 use crate::{CubicBezierSegment, LineSegment, QuadraticBezierSegment};
 
-use std::ops::Range;
+use core::ops::Range;
 
 /// Common APIs to segment types.
 pub trait Segment: Copy + Sized {

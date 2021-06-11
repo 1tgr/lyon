@@ -6,8 +6,8 @@ use crate::traits::Transformation;
 use crate::{CubicBezierSegment, Line, LineEquation, LineSegment, Triangle};
 use arrayvec::ArrayVec;
 
-use std::mem;
-use std::ops::Range;
+use core::mem;
+use core::ops::Range;
 
 /// A 2d curve segment defined by three points: the beginning of the segment, a control
 /// point and the end of the segment.

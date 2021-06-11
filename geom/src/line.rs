@@ -4,9 +4,9 @@ use crate::scalar::Scalar;
 use crate::segment::{BoundingRect, FlatteningStep, Segment};
 use crate::traits::Transformation;
 use crate::utils::min_max;
-use std::mem::swap;
+use core::mem::swap;
 
-use std::ops::Range;
+use core::ops::Range;
 
 /// A linear segment.
 #[derive(Copy, Clone, Debug, PartialEq)]
@@ -300,7 +300,7 @@ impl<S: Scalar> LineSegment<S> {
     fn axis_aligned_intersection_1d(mut a: S, mut b: S, v: S) -> Option<S> {
         let swap = a > b;
         if swap {
-            std::mem::swap(&mut a, &mut b);
+            core::mem::swap(&mut a, &mut b);
         }
 
         let d = b - a;
@@ -650,7 +650,7 @@ fn fuzzy_eq_point(a: Point<f32>, b: Point<f32>, epsilon: f32) -> bool {
 
 #[test]
 fn intersection_rotated() {
-    use std::f32::consts::PI;
+    use core::f32::consts::PI;
     let epsilon = 0.0001;
     let count: u32 = 100;
 

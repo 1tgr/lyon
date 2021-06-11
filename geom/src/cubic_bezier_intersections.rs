@@ -10,7 +10,8 @@ use crate::generic_math::{point, Point, Rect};
 use crate::scalar::Scalar;
 use crate::CubicBezierSegment;
 use arrayvec::ArrayVec;
-use std::ops::Range;
+use alloc::vec::Vec;
+use core::ops::Range;
 
 // Computes the intersections (if any) between two cubic bézier curves in the form of the `t`
 // parameters of each intersection point along the curves.
@@ -1100,7 +1101,7 @@ fn test_cubic_no_duplicated_root() {
 
 #[test]
 fn test_cubic_glancing_intersection() {
-    use std::panic;
+    use core::panic;
     // The f64 version currently fails on a very close fat line miss after 57 recursions.
     let result = panic::catch_unwind(|| {
         do_test(
@@ -1143,7 +1144,7 @@ fn test_cubic_glancing_intersection() {
 
 #[test]
 fn test_cubic_duplicated_intersections() {
-    use std::panic;
+    use core::panic;
     let result = panic::catch_unwind(|| {
         // This finds an extra intersection (0.49530116, 0.74361485) - the actual, also found, is
         // (0.49633604, 0.74361396). Their difference is (−0.00103488, 0.00000089) - we consider
@@ -1172,7 +1173,7 @@ fn test_cubic_endpoint_not_an_intersection() {
     // f32 curves seem to be somewhat prone to picking up not-an-intersections where an endpoint of
     // one curve is close to and points into the interior of the other curve, and both curves are
     // "mostly linear" on some level.
-    use std::panic;
+    use core::panic;
     let result = panic::catch_unwind(|| {
         do_test(
             &CubicBezierSegment {

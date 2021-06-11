@@ -3,9 +3,10 @@ use crate::scalar::{NumCast, Scalar};
 use crate::segment::{BoundingRect, Segment};
 use crate::{CubicBezierSegment, QuadraticBezierSegment};
 use arrayvec::ArrayVec;
-use std::ops::Range;
+use core::ops::Range;
+use num_traits::Float;
 
-use std::f64;
+use core::f64;
 
 pub(crate) trait MonotonicSegment {
     type Scalar: Scalar;

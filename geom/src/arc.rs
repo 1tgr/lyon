@@ -1,7 +1,7 @@
 //! Elliptic arc related maths and tools.
 
-use std::mem::swap;
-use std::ops::Range;
+use core::mem::swap;
+use core::ops::Range;
 
 use crate::generic_math::{point, vector, Angle, Point, Rect, Rotation, Transform, Vector};
 use crate::scalar::{cast, Float, Scalar};

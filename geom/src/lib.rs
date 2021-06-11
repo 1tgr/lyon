@@ -1,3 +1,4 @@
+#![no_std]
 #![doc(html_logo_url = "https://nical.github.io/lyon-doc/lyon-logo.svg")]
 #![deny(bare_trait_objects)]
 #![allow(clippy::many_single_char_names)]
@@ -80,6 +81,9 @@
 pub use arrayvec;
 pub use euclid;
 
+#[macro_use]
+extern crate alloc;
+
 #[cfg(feature = "serialization")]
 #[macro_use]
 pub extern crate serde;
@@ -120,8 +124,8 @@ mod scalar {
     pub(crate) use num_traits::One;
     pub(crate) use num_traits::{Float, FloatConst, NumCast};
 
-    use std::fmt::{Debug, Display};
-    use std::ops::{AddAssign, DivAssign, MulAssign, SubAssign};
+    use core::fmt::{Debug, Display};
+    use core::ops::{AddAssign, DivAssign, MulAssign, SubAssign};
 
     pub trait Scalar:
         Float
